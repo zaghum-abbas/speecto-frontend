@@ -16,6 +16,14 @@ const Model = ({
   selectedId,
   isSubmitting,
 }) => {
+  const formatDateForInput = (date) => {
+    const d = new Date(date);
+    const year = d.getFullYear();
+    const month = (`0${d.getMonth() + 1}`).slice(-2); // Add leading zero and slice last two characters
+    const day = (`0${d.getDate()}`).slice(-2); // Add leading zero and slice last two characters
+  
+    return `${year}-${month}-${day}`;
+  };
   return (
     <Dialog open={open} onClose={onClose} className="relative z-10">
       <DialogBackdrop
@@ -46,7 +54,7 @@ const Model = ({
                         prescription: selectedId?.prescription ?? "",
                         title: selectedId?.title ?? "",
                         description: selectedId?.description ?? "",
-                        date: selectedId?.date ?? "",
+                        date: formatDateForInput(selectedId?.date) ?? "",
                       }}
                       // validationSchema={validationSchema}
                       onSubmit={handleSubmit}

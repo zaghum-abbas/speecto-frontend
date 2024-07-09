@@ -53,6 +53,7 @@ const Navbar = ({ toggleSidebar }) => {
   useEffect(() => {
     const initializeFCM = async () => {
       const fcmToken = localStorage.getItem("fcmToken");
+      console.log("fcmToken", fcmToken);
       if (!fcmToken) {
         try {
           const currentToken = await requestForToken();
@@ -78,8 +79,6 @@ const Navbar = ({ toggleSidebar }) => {
       },
     ]);
   });
-
-
 
   const handleMenuItemClick = (item) => {
     if (item.name === "Logout") {
