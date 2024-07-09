@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAAB_wnysdMeiAe2X1pQ2X8xzDcmLzckus",
+  apiKey:  process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "medistan-62fdc.firebaseapp.com",
   projectId: "medistan-62fdc",
   storageBucket: "medistan-62fdc.appspot.com",
